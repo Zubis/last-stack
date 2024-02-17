@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Space Inviters!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        {% block stylesheets %}{% endblock %}
 
         {% block javascripts %}
             {{ importmap('app') }}
@@ -17,7 +16,11 @@
             <header class="my-8 px-4">
                 <nav class="flex items-center justify-between mb-4">
                     <div class="flex items-center">
-                        <a href="{{ path('app_homepage') }}">
+                        <a
+                            href="{{ path('app_homepage') }}"
+                            data-controller="celebrate"
+                            data-action="mouseover->celebrate#poof"
+                        >
                             <img src="{{ asset('images/logo.png') }}" width="50" alt="Space Inviters Logo" >
                         </a>
                         <a href="{{ path('app_homepage') }}" class="text-xl ml-3">Space Inviters</a>
