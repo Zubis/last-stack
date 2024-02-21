@@ -84,4 +84,12 @@ class PlanetController extends AbstractController
 
         return $this->redirectToRoute('app_planet_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/{id}/card', name: 'app_planet_show_card', methods: ['GET'])]
+    public function showCard(Planet $planet): Response
+    {
+        return $this->render('planet/_card.html.twig', [
+            'planet' => $planet,
+        ]);
+    }
 }
