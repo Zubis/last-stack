@@ -16,10 +16,13 @@
                 method="GET"
                 action="{{ path('app_homepage') }}"
                 class="mb-6 flex justify-between"
+                data-controller="autosubmit"
             >
                 <input
+                    autofocus
                     type="search"
                     name="query"
+                    data-action="autosubmit#debouncedSubmit"
                     value="{{ app.request.query.get('query') }}"
                     aria-label="Search voyages"
                     placeholder="Search voyages"
